@@ -1,12 +1,11 @@
+import javax.swing.JOptionPane;
+import javax.swing.plaf.synth.SynthOptionPaneUI;
+
 public class FirstCode {
 	public static void main (String[] args) {
-		int age = 15; 
-		long bignum = 4_132_343_242L;
-		char key = 'A'; 
-		float num = 4.3121F;
-		System.out.println(age);
-		System.out.println(bignum % age);
-		System.out.println(key);
-		System.out.println(num * age);
+		int x = 5;
+		int y = 2;
+		int div = (double)(x/y);
+		System.out.println(div);
 	}
 }
