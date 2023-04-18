@@ -1,21 +1,23 @@
-import javax.swing.JOptionPane;
+import java.util.*;
+import java.text.*;
 
 public class SecondCode {
     public static void main(String[] args) {
-        String name = JOptionPane.showInputDialog("Enter your name ?");
 
-        int age = Integer.parseInt(JOptionPane.showInputDialog("Enter your ages: "));
+        Scanner scan = new Scanner(System.in);
+        NumberFormat currencyFmt = NumberFormat.getCurrencyInstance(Locale.FRANCE);
 
-        double height = Double.parseDouble(JOptionPane.showInputDialog("Enter your height"));
+        int items;
+        double cost, total;
+        System.out.print("Enter the number of item");
+        items = scan.nextInt();
+        System.out.print("Enter the cost per item");
+        cost = scan.nextDouble();
+        total = items * cost;
+        System.out.println();
+        System.out.println("Unformated total: " + total);
+        System.out.println("Formatted total:  " + currencyFmt.format(total));
 
-        JOptionPane.showMessageDialog(null, 
-            "Your name is " + name +
-            "\nYour age is : " + age +
-            "\nYour height is: " + height
-        );
-
-        
-
-
+        scan.close(); //
     }
 }
