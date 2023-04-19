@@ -1,7 +1,5 @@
-import java.lang.*;
+import java.lang.Math;
 import javax.swing.*;
-
-import jdk.nashorn.internal.scripts.JO;
 
 public class hello {
 
