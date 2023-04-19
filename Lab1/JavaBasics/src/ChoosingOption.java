@@ -1,21 +1,14 @@
-import javax.swing.*;
-import java.awt.event.*;
 
-public class ChoosingOption extends WindowAdapter {
-    JFrame f;
+import javax.swing.JOptionPane;
 
-    public void windowClosing(WindowEvent e) {
-        int a = JOptionPane.showConfirmDialog(null,"Are you sure ?");
-        if (a == JOptionPane.YES_OPTION) {
-            f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        }
-    }
-
+public class ChoosingOption {
     public static void main(String[] args) {
-        ChoosingOption obj = new ChoosingOption();
-        obj.f = new JFrame();
-        obj.f.addWindowListener(obj);
-        obj.f.setSize(300, 300);
-        obj.f.setVisible(true);
+        int option = JOptionPane.showConfirmDialog(null,
+                "Do you want to change to the first class ticket?");
+
+        JOptionPane.showMessageDialog(null,
+                "You've choosen: " + (option == JOptionPane.YES_OPTION ? "Yes" : "No"));
+        System.exit(0);
     }
+
 }
