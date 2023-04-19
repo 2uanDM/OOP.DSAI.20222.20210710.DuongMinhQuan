@@ -1,0 +1,7 @@
+import javax.swing.JOptionPane;
+public class ChoosingOption {
+	public static void main(String[] args) {
+		JOptionPane.showMessageDialog(null, "Successfully Updated","Alert",JOptionPane.WARNING_MESSAGE);
+		String a = JOptionPane.showInputDialog("Enter Name");
+	}
+}

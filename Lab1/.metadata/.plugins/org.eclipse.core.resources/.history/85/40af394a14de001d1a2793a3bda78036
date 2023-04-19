@@ -1,0 +1,13 @@
+import javax.swing.*;
+public class Excercise_2_2_5 {
+	public static void main(String[] args) {
+		double num1, num2;
+		
+		num1 = Double.parseDouble(JOptionPane.showInputDialog(null,
+				"Enter the first number",
+				"Input the first number",
+				JOptionPane.INFORMATION_MESSAGE));
+		
+				
+	}
+}

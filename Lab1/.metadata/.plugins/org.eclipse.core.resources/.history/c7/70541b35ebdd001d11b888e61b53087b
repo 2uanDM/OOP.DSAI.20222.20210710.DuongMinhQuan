@@ -1,0 +1,6 @@
+import javax.swing.JOptionPane;
+public class ChoosingOption {
+	public static void main(String[] args) {
+		JOptionPane.showMessageDialog(null, "Hello everybody", 1);
+	}
+}
