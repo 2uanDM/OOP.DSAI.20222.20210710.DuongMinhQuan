@@ -1,9 +1,10 @@
+
 import javax.swing.*;
 import java.util.*;
 
 public class DaysOfMonth {
 
-    public boolean checkLeapYear(int n) {
+    public static boolean checkLeapYear(int n) {
         if (n % 100 == 0) {
             if (n % 400 == 0)
                 return true;
@@ -17,16 +18,23 @@ public class DaysOfMonth {
         }
     }
 
-    public boolean checkContain(String[] arr, String s) {
-        for (String item : arr) {
-            if (s == item)
+    public static boolean checkContain(String[] arr, String s) {
+        for (int i = 0; i < arr.length; ++i) {
+            if (s.equals(arr[i]))
                 return true;
         }
         return false;
     }
 
-    public int checkValidMonth(String s) {
-        DaysOfMonth day = new DaysOfMonth();
+    public static boolean checkContain(int[] arr, int s) {
+        for (int i = 0; i < arr.length; ++i) {
+            if (s == arr[i])
+                return true;
+        }
+        return false;
+    }
+
+    public static int checkValidMonth(String s) {
 
         // Initialize
         String[] month = { "January", "February", "March", "April", "May", "June", "July", "August", "September",
@@ -37,19 +45,19 @@ public class DaysOfMonth {
                 "Dec" };
         String[] monthNumber = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
 
-        boolean checkStatus = day.checkContain(month, s) ||
-                day.checkContain(abbreviation, s) ||
-                day.checkContain(threeLetters, s) ||
-                day.checkContain(monthNumber, s);
+        boolean checkStatus = checkContain(month, s) ||
+                checkContain(abbreviation, s) ||
+                checkContain(threeLetters, s) ||
+                checkContain(monthNumber, s);
 
         if (checkStatus == false)
             return -1;
 
-        if (day.checkContain(month, s) == true)
+        if (checkContain(month, s) == true)
             return Arrays.asList(month).indexOf(s) + 1;
-        else if (day.checkContain(abbreviation, s) == true)
+        else if (checkContain(abbreviation, s) == true)
             return Arrays.asList(abbreviation).indexOf(s) + 1;
-        else if (day.checkContain(threeLetters, s) == true)
+        else if (checkContain(threeLetters, s) == true)
             return Arrays.asList(threeLetters).indexOf(s) + 1;
         else
             return Arrays.asList(monthNumber).indexOf(s) + 1;
@@ -70,18 +78,17 @@ public class DaysOfMonth {
 
         DaysOfMonth day = new DaysOfMonth();
         String year, month;
-        int numMonth, result = 0;
+        int numMonth;
 
         // Input Month
         while (true) {
-            month = JOptionPane.showInputDialog("Enter the month: ");
-            if (day.checkValidMonth(month) == -1) {
+            month = JOptionPane.showInputDialog(null, "Enter the month: ");
+            numMonth = checkValidMonth(month);
+            if (numMonth == -1) {
                 JOptionPane.showMessageDialog(null, "You've enter a not valid month. Please try again!");
                 continue;
-            } else {
-                numMonth = day.checkValidMonth(month);
+            } else
                 break;
-            }
         }
 
         // Input Year
@@ -96,92 +103,25 @@ public class DaysOfMonth {
 
         // Main process
 
-        if (day.checkLeapYear(Integer.parseInt(year)) == true) {
-            switch (numMonth) {
-                case 1:
-                    result = 31;
-                    break;
-                case 2:
-                    result = 29;
-                    break;
-                case 3:
-                    result = 31;
-                    break;
-                case 4:
-                    result = 30;
-                    break;
-                case 5:
-                    result = 31;
-                    break;
-                case 6:
-                    result = 30;
-                    break;
-                case 7:
-                    result = 31;
-                    break;
-                case 8:
-                    result = 31;
-                    break;
-                case 9:
-                    result = 30;
-                    break;
-                case 10:
-                    result = 31;
-                    break;
-                case 11:
-                    result = 30;
-                    break;
-                case 12:
-                    result = 31;
-                    break;
-            }
+        int[] monthWith30Days = { 4, 6, 9, 11 };
+        int[] monthWith31Days = { 1, 3, 5, 7, 8, 10, 12 };
 
+        if (checkContain(monthWith31Days, numMonth)) {
             JOptionPane.showMessageDialog(null,
-                    "The day in mont: " + month + ", year: " + Integer.parseInt(year) + " is: " + result);
-
+                    "The day in Month: " + month + "\nYear: " + Integer.parseInt(year) + "\nis: 31");
         } else {
-            switch (numMonth) {
-                case 1:
-                    result = 31;
-                    break;
-                case 2:
-                    result = 28;
-                    break;
-                case 3:
-                    result = 31;
-                    break;
-                case 4:
-                    result = 30;
-                    break;
-                case 5:
-                    result = 31;
-                    break;
-                case 6:
-                    result = 30;
-                    break;
-                case 7:
-                    result = 31;
-                    break;
-                case 8:
-                    result = 31;
-                    break;
-                case 9:
-                    result = 30;
-                    break;
-                case 10:
-                    result = 31;
-                    break;
-                case 11:
-                    result = 30;
-                    break;
-                case 12:
-                    result = 31;
-                    break;
+            if (checkContain(monthWith30Days, numMonth)) {
+                JOptionPane.showMessageDialog(null,
+                        "The day in Month: " + month + "\nYear: " + Integer.parseInt(year) + "\nis: 30");
+            } else {
+                if (checkLeapYear(Integer.parseInt(year))) {
+                    JOptionPane.showMessageDialog(null,
+                            "The day in Month: " + month + "\nYear: " + Integer.parseInt(year) + "\nis: 29");
+                } else {
+                    JOptionPane.showMessageDialog(null,
+                            "The day in Month: " + month + "\nYear: " + Integer.parseInt(year) + "\nis: 28");
+                }
             }
-
-            JOptionPane.showMessageDialog(null,
-                    "The day in month: " + month + ", year: " + Integer.parseInt(year) + " is: " + result);
-
         }
     }
 }
