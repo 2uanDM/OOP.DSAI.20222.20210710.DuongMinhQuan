@@ -1,4 +1,3 @@
-
 import javax.swing.*;
 import java.util.*;
 
@@ -63,7 +62,7 @@ public class DaysOfMonth {
             return Arrays.asList(monthNumber).indexOf(s) + 1;
     }
 
-    public boolean checkValidYear(String s) {
+    public static boolean checkValidYear(String s) {
         try {
             int year = Integer.parseInt(s);
             if (year < 0)
@@ -75,8 +74,6 @@ public class DaysOfMonth {
     }
 
     public static void main(String[] args) {
-
-        DaysOfMonth day = new DaysOfMonth();
         String year, month;
         int numMonth;
 
@@ -94,7 +91,7 @@ public class DaysOfMonth {
         // Input Year
         while (true) {
             year = JOptionPane.showInputDialog("Enter the year: ");
-            if (day.checkValidYear(year) == false) {
+            if (checkValidYear(year) == false) {
                 JOptionPane.showMessageDialog(null, "You've enter a not valid month. Please try again!");
                 continue;
             } else

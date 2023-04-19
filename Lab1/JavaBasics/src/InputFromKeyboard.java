@@ -1,6 +1,6 @@
-import java.util.Scanner;
+import java.util.*;
 
-public class InputFromKeyboard {
+public class InputFromKeyBoard {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
 
@@ -15,5 +15,4 @@ public class InputFromKeyboard {
                 + "Your height is " + dHeight + ". ");
         keyboard.close();
     }
-
 }
