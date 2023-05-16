@@ -1,0 +1,3 @@
+-  Answer the questions: If you create a constructor method to build a DVD by title then create a constructor method to build a DVD by category. Does JAVA allow you to do this ?
+
+No, sync the attribute title and category has the same type :String, so if we create two constructor of that attributes, JAVA will understand those are duplicated constructor (they has the same method signature)
