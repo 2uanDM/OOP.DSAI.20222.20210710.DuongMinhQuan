@@ -1,4 +1,4 @@
-package MyPackage;
+
 
 import javax.naming.TimeLimitExceededException;
 

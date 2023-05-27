@@ -1,5 +1,3 @@
-package MyPackage;
-
 public class Aims {
     public static void main(String[] args) {
         // Create a new cart
