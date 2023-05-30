@@ -1,7 +1,3 @@
-package MyPackage;
-
-import javax.naming.TimeLimitExceededException;
-
 public class DigitalVideoDisc {
     private String title;
     private String category;
