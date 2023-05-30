@@ -1,0 +1,8 @@
+Answer the question: 
+3.
+ ● Ask: After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two objects still remain?
+ ● Answer: The reason why the title of jungleDVD and cinderellaDVD remain the same after calling swap() method is that Java passes arguments to methods by value, not by reference. In the swap() method, even though we swap s1 and s2, it only modifies the values of its local variables, which are copies of the references to the objects created in the main() method. Therefore, the original objects themselves are left intact and their state doesn't change.
+
+ ● Ask: After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is the title of the JungleDVD changed?
+ ● Answer: Since we use the mutator of this object in this function, so the title of the JungleDVD changed
+4. 
