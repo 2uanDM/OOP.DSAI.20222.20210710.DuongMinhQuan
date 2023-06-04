@@ -1,8 +1,4 @@
 package hust.soict.dsai.aims.cart;
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 
 public class CartTest {

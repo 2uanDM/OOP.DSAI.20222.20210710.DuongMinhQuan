@@ -1,9 +1,7 @@
 package hust.soict.dsai.aims.store;
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+
 public class Store {
     private DigitalVideoDisc[] itemsInStore;
     private int qtyDisc;

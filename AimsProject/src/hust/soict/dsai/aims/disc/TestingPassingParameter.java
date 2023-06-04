@@ -1,8 +1,5 @@
 package hust.soict.dsai.aims.disc;
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 public class TestingPassingParameter {
     public static void main(String[] args) {
         // TODO Auto-generated method stub

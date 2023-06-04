@@ -1,9 +1,5 @@
-<<<<<<<< Updated upstream:AimsProject/src/hust/soict/dsai/aims/Aims.java
 package hust.soict.dsai.aims;
 
-========
-package hust.soict.dsai;
->>>>>>>> Stashed changes:AimsProject/src/hust/soict/dsai/Aims.java
 import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 
