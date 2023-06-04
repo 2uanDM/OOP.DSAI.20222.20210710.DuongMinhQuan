@@ -1,3 +1,10 @@
+package hust.soict.dsai.aims.cart;
+<<<<<<< Updated upstream
+
+=======
+>>>>>>> Stashed changes
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+
 public class CartTest {
     public static void main(String[] args) {
         // Create a new cart
