@@ -13,6 +13,10 @@ public class DigitalVideoDisc {
         id = nbDigitalVideoDiscs;
     }
 
+    public String toString() {  
+        return "DVD - " + this.title + " - " + this.category + " - " + this.director + " - " + this.length + ": " + this.cost + "$";
+    }
+
     public DigitalVideoDisc(String title, String category, float cost) {
         this.title = title;
         this.category = category;

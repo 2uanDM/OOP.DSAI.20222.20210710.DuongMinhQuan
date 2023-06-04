@@ -1,5 +1,3 @@
-
-
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
     private DigitalVideoDisc[] itemsOrdered;
@@ -77,16 +75,54 @@ public class Cart {
         return Math.round(total * 100.0) / 100.0;
     }
 
-    public void getItemsOrdered() {
-        for (int i = 0; i < qtyOrdered; i++) {
-            DigitalVideoDisc disc = itemsOrdered[i];
-            System.out.println("-------------------------------");
-            System.out.println("Disc " + (i+1) + ":");
-            System.out.println("Title: " + disc.getTitle()); 
-            System.out.println("Category: " + disc.getCategory()); 
-            System.out.println("Director: " + disc.getDirector()); 
-            System.out.println("Cost: " + disc.getCost()); 
-            System.out.println("Length: " + disc.getLength()); 
+    public void print() {
+        System.out.println("************************************CART************************************");
+        System.out.println("Ordered Items: ");
+        for (int i = 0; i < qtyOrdered; i++) { 
+            System.out.print(i+1);
+            System.out.println(". " + itemsOrdered[i]);
+        }
+        System.out.println("Total cost: " + totalCost() + "$");
+        System.out.println("****************************************************************************");
+    }
+
+    public void searchDVDByID(int id) {
+        boolean found = false; 
+        int position = 0;
+
+        // Iterate all the items
+        for (int i = 0; i < qtyOrdered; i++) { 
+            if (itemsOrdered[i].getId() == id) {
+                position = i;
+                found = true;
+                break;
+            }
+        }
+
+        if (found == false) {
+            System.out.println("No match is found !");
+        } else { 
+            System.out.println(itemsOrdered[position]);
+        }
+    }
+
+    public void searchDVDByTitle(String title) {
+        boolean found = false; 
+        int position = 0;
+
+        // Iterate all the items
+        for (int i = 0; i < qtyOrdered; i++) { 
+            if (itemsOrdered[i].getTitle().equals(title)) {
+                position = i;
+                found = true;
+                break;
+            }
+        }
+
+        if (found == false) {
+            System.out.println("No match is found !");
+        } else { 
+            System.out.println(itemsOrdered[position]);
         }
     }
 
