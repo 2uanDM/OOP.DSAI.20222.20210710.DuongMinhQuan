@@ -1,35 +1,40 @@
 package hust.soict.dsai.aims.store;
 
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.Media;
+import java.util.ArrayList;
 
 public class Store {
-    private DigitalVideoDisc[] itemsInStore;
-    private int qtyDisc;
+    private ArrayList<Media> itemsInStore;
+    private int qtyItems;
 
     public Store() {
-        itemsInStore = new DigitalVideoDisc[1000];
-        qtyDisc = 0;
+        itemsInStore = new ArrayList<Media>(1000);
+        qtyItems = 0;
     }
 
-    public void addDVD(DigitalVideoDisc disc) { 
-        itemsInStore[qtyDisc] = disc;
-        qtyDisc++;
-        System.out.println("The disc has successfully added to the store");
-    }
-
-    public void removeDVD(DigitalVideoDisc disc) {
-        // Search for the position of the disc in the array
-        for (int i = 0; i < qtyDisc-1; i++) { 
-            if (disc.isEqual(itemsInStore[i])) {
-                for(int j = i; j < qtyDisc-2; j++)
-                    itemsInStore[i] = itemsInStore[i+1]; // Shift the remaining items to fill the gap 
-                
-                itemsInStore[qtyDisc-1] = null;
-                qtyDisc--;
-                System.out.println("The disc has successfully removed from the store!");
-                return;
+    public boolean addItem(Media item) {
+        for (Media media : itemsInStore) {
+            if (media.equals(item)) {
+                System.out.println("The item is already exist in the store");
+                return false;
             }
         }
-        System.out.println("No match is found!");       
+        itemsInStore.add(item);
+        qtyItems++;
+        System.out.println("The item has successfully added to the store");
+        return true;
+    }
+
+    public boolean removeItem(Media item) {
+        // Search for the position of the disc in the array
+        for (Media media : itemsInStore) {
+            if (media.equals(item)) {
+                itemsInStore.remove(media);
+                System.out.println("The item has successfully removed from the store");
+                return true;
+            }
+        }
+        System.out.println("There is no item match in the store");
+        return false;
     }
 }
