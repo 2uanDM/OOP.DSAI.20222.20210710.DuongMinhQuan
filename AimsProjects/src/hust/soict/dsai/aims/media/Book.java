@@ -1,10 +1,9 @@
 package hust.soict.dsai.aims.media;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Book extends Media {
-    private List<String> authors = new ArrayList<String>();
+    private ArrayList<String> authors = new ArrayList<String>();
 
     // Constructor
     public Book(int id, String title, String category, float cost) {
@@ -20,7 +19,7 @@ public class Book extends Media {
 
     // toString()
     public String toString() {
-        return String.format("Class: %s, Title: %s, Category: %s, Cost: %:.2f",
+        return String.format("Class: %s, Title: %s, Category: %s, Cost: %f",
                 this.getClass(), this.getTitle(), this.getCategory(), this.getCost());
     }
 
@@ -31,7 +30,6 @@ public class Book extends Media {
                 return false;
             }
         }
-
         authors.add(author);
         return true;
     }
