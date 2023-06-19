@@ -1,39 +1,38 @@
 package hust.soict.dsai.aims.media;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CompactDisc extends Disc implements Playable {
     private String artist = "";
-    private ArrayList<Track> tracks = new ArrayList<Track>();
+    private List<Track> tracks = new ArrayList<Track>();
+
+    public String toString() {
+        return String.format(
+                "Class: %s,Id: %d,Title: %s, Artist : %s, Category: %s, Director: %s, Cost: %f, Length: %d",
+                this.getClass(), this.getId(), this.getTitle(), this.getArtist(), this.getCategory(),
+                this.getDirector(), this.getCost(), this.getLength());
+    }
 
     // Constructor
     public CompactDisc() {
         super();
     }
 
-    public CompactDisc(int id, String title, String category, float cost, String director, int length) {
-        this.setId(id);
+    public CompactDisc(String title) {
         this.setTitle(title);
+    }
+
+    public CompactDisc(int id, String title, String category, float cost, String director, int length) {
+        this(title);
+        this.setId(id);
         this.setCategory(category);
         this.setCost(cost);
         this.setDirector(director);
         this.setLength(length);
     }
 
-    public CompactDisc(String title) {
-        this.setTitle(title);
-    }
-
     // Getter and Setter
-    public int getLength() {
-        int res = 0;
-        for (Track track : tracks) {
-            int length = track.getLength();
-            res += length;
-        }
-        return res;
-    }
-
     public String getArtist() {
         return artist;
     }
@@ -42,13 +41,14 @@ public class CompactDisc extends Disc implements Playable {
         this.artist = artist;
     }
 
-    public boolean addTrack(Track track) {
-        for (Track name : tracks) {
-            if (track.equals(name)) {
+    public boolean addTrack(Track newTrack) {
+        for (Track track : tracks) {
+            if (track.equals(newTrack)) {
+                System.out.println("The track " + newTrack.getTitle() + " is already in the list");
                 return false;
             }
         }
-        tracks.add(track);
+        tracks.add(newTrack);
         return true;
     }
 
@@ -59,14 +59,17 @@ public class CompactDisc extends Disc implements Playable {
                 return true;
             }
         }
+        System.out.println("There is no track: " + track.getTitle() + " in the list");
         return false;
     }
 
-    public String toString() {
-        return String.format(
-                "Class: %s,Id: %d,Title: %s, Artist : %s, Category: %s, Director: %s, Cost: %f, Length: %d",
-                this.getClass(), this.getId(), this.getTitle(), this.getArtist(), this.getCategory(),
-                this.getDirector(), this.getCost(), this.getLength());
+    public int getLength() {
+        int res = 0;
+        for (Track track : tracks) {
+            int length = track.getLength();
+            res += length;
+        }
+        return res;
     }
 
     public void play() {
