@@ -22,9 +22,8 @@ public class CompactDisc extends Disc implements Playable {
         this.setTitle(title);
     }
 
-    public CompactDisc(int id, String title, String category, float cost, String director, int length) {
+    public CompactDisc(String title, String category, float cost, String director, int length) {
         this(title);
-        this.setId(id);
         this.setCategory(category);
         this.setCost(cost);
         this.setDirector(director);

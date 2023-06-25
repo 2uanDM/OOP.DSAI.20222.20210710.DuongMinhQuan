@@ -1,6 +1,5 @@
 package hust.soict.dsai.aims.store;
 
-import hust.soict.dsai.aims.media.Disc;
 import hust.soict.dsai.aims.media.Media;
 import java.util.ArrayList;
 
@@ -66,14 +65,8 @@ public class Store {
         }
     }
 
-    // public static void main(String[] args) {
-    // Store store = new Store();
-    // Media med1 = new Disc();
-    // Media med2 = new Disc();
-    // store.addMedia(med1);
-    // store.addMedia(med2);
-    // store.removeMedia(med2);
-    // System.out.println(store.qtyItems());
+    public ArrayList<Media> getItemsInStores() {
+        return itemsInStore;
+    }
 
-    // }
 }
