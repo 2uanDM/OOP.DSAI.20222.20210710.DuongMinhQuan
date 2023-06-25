@@ -1,72 +1,52 @@
 package hust.soict.dsai.aims.store;
-
-import hust.soict.dsai.aims.media.Media;
 import java.util.ArrayList;
+import java.util.List;
+
+import hust.soict.dsai.aims.exception.*;
+import hust.soict.dsai.aims.media.*;
+import java.time.LocalDate;
 
 public class Store {
-    private ArrayList<Media> itemsInStore;
+	private List<Media> itemsInStore = new ArrayList<Media>();
 
-    public int qtyItems() {
-        return this.itemsInStore.size();
-    }
-
-    public Store() {
-        itemsInStore = new ArrayList<Media>(1000);
-    }
-
-    public boolean addMedia(Media item) {
-        for (Media media : itemsInStore) {
-            if (media.equals(item)) {
-                System.out.println("The item is already exist in the store");
-                return false;
-            }
-        }
-        itemsInStore.add(item);
-        System.out.println("The item has successfully added to the store");
-        return true;
-    }
-
-    public boolean removeMedia(Media item) {
-        // Search for the position of the disc in the array
-        for (Media media : itemsInStore) {
-            if (media.equals(item)) {
-                itemsInStore.remove(media);
-                System.out.println("The item has successfully removed from the store");
-                return true;
-            }
-        }
-        System.out.println("There is no item match in the store");
-        return false;
-    }
-
-    public boolean checkMedia(Media media) {
-        for (Media name : itemsInStore) {
-            if (media.equals(name)) {
-                return true;
-            }
-        }
-        return false;
-
-    }
-
-    public Media searchByTitle(String title) {
-        for (Media media : itemsInStore) {
-            if (media.getTitle().equals(title)) {
-                return media;
-            }
-        }
-        return null;
-    }
-
-    public void available() {
-        System.out.println("-----Items in store------");
-        for (Media media : itemsInStore) {
-            System.out.println(media.toString());
-        }
-    }
-
-    public ArrayList<Media> getItemsInStores() {
-        return itemsInStore;
-    }
-
+	public void addMedia(Media medium) throws DupplicatedItemException {
+		if (this.itemsInStore.contains(medium) || medium.getTitle() == null) {
+			throw new DupplicatedItemException();
+		} else {
+			medium.setDateAdded(LocalDate.now());
+			this.itemsInStore.add(medium);
+			System.out.println(medium.getTitle() + " has been added to the store.");
+		}
+	}
+	
+	public void removeMedia(Media medium) throws NonExistingItemException {
+		if (this.itemsInStore.remove(medium)) {
+			System.out.println(medium.getTitle() + " has been removed from the store.");
+		} else {
+			throw new NonExistingItemException(medium.getTitle() + " is not available at the store.");
+		}
+	}
+	
+	public Media searchMedia(String title) {
+		for (Media medium: this.itemsInStore) {
+			if (medium.getTitle().toLowerCase().equals(title.toLowerCase())) {
+				return medium;
+			}
+		}
+		return null;
+	}
+	
+	public void print() {
+		System.out.println("\n");
+		System.out.println("*************AVAILABLE MEDIA IN STORE**************");
+		for (int i = 0; i < itemsInStore.size(); i++) {
+			System.out.println(Integer.toString(i+1) + "." + "\t" + this.itemsInStore.get(i).getTitle() + "\t-\t" + this.itemsInStore.get(i).getType());
+		}
+		System.out.println("***************************************************");
+		System.out.println("\n");
+	}
+	
+	public ArrayList<Media> getItemsInStore() {
+		return (ArrayList<Media>) this.itemsInStore;
+	}
 }
