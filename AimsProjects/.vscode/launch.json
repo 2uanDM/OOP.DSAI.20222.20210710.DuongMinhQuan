@@ -6,10 +6,43 @@
   "configurations": [
     {
       "type": "java",
+      "name": "AddDVDToStoreScreen",
+      "request": "launch",
+      "mainClass": "hust.soict.dsai.aims.screen.AddDVDToStoreScreen",
+      "projectName": "AimsProjects_cfbd779c",
+      "vmArgs": "--module-path \"c:\\Program Files\\Java\\javafx-sdk-20.0.1\\lib\\\" --add-modules javafx.controls,javafx.fxml,javafx.media"
+    },
+    {
+      "type": "java",
+      "name": "AddBookToStoreScreen",
+      "request": "launch",
+      "mainClass": "hust.soict.dsai.aims.screen.AddBookToStoreScreen",
+      "projectName": "AimsProjects_cfbd779c",
+      "vmArgs": "--module-path \"c:\\Program Files\\Java\\javafx-sdk-20.0.1\\lib\\\" --add-modules javafx.controls,javafx.fxml,javafx.media"
+    },
+    {
+      "type": "java",
+      "name": "CartScreen",
+      "request": "launch",
+      "mainClass": "hust.soict.dsai.aims.screen.CartScreen",
+      "projectName": "AimsProjects_cfbd779c",
+      "vmArgs": "--module-path \"c:\\Program Files\\Java\\javafx-sdk-20.0.1\\lib\\\" --add-modules javafx.controls,javafx.fxml,javafx.media"
+    },
+    {
+      "type": "java",
+      "name": "Aims",
+      "request": "launch",
+      "mainClass": "hust.soict.dsai.aims.Aims",
+      "projectName": "AimsProjects_cfbd779c",
+      "vmArgs": "--module-path \"c:\\Program Files\\Java\\javafx-sdk-20.0.1\\lib\\\" --add-modules javafx.controls,javafx.fxml,javafx.media"
+    },
+    {
+      "type": "java",
       "name": "StoreScreen",
       "request": "launch",
       "mainClass": "hust.soict.dsai.aims.screen.StoreScreen",
-      "projectName": "AimsProjects_cfbd779c"
+      "projectName": "AIMSPROJECTS",
+      "vmArgs": "--module-path \"c:\\Program Files\\Java\\javafx-sdk-20.0.1\\lib\\\" --add-modules javafx.controls,javafx.fxml,javafx.media"
     },
     {
       "type": "java",

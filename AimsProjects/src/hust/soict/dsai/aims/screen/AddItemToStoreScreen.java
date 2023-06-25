@@ -12,19 +12,18 @@ import hust.soict.dsai.aims.store.Store;
 public class AddItemToStoreScreen extends JFrame {
 	private Store store;
 	private Cart cart;
-	
+
 	public AddItemToStoreScreen(Store store, Cart cart) {
 		super();
 		this.store = store;
 		this.cart = cart;
-		
+
 		this.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				new StoreScreen(store, cart);
-				hide();
 			}
 		});
 	}
-	
+
 }

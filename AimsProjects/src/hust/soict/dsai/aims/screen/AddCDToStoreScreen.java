@@ -15,9 +15,9 @@ import javafx.scene.Scene;
 public class AddCDToStoreScreen extends AddItemToStoreScreen {
 	public AddCDToStoreScreen(Store store, Cart cart) {
 		super(store, cart);
-		
+
 		JFrame frame = this;
-		
+
 		JFXPanel fxPanel = new JFXPanel();
 		this.add(fxPanel);
 		this.setTitle("Add CD to store");
@@ -28,7 +28,7 @@ public class AddCDToStoreScreen extends AddItemToStoreScreen {
 			public void run() {
 
 				try {
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("/hust/soict/dsai/aims/screen/addCDToStore.fxml"));
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("addCDToStore.fxml"));
 					AddCDToStoreScreenController controller = new AddCDToStoreScreenController(store, cart, frame);
 					loader.setController(controller);
 					Parent root = loader.load();
@@ -37,10 +37,10 @@ public class AddCDToStoreScreen extends AddItemToStoreScreen {
 					e.printStackTrace();
 				}
 			}
-			
+
 		});
 	}
-	
+
 	public static void main(String[] args) {
 		new AddCDToStoreScreen(new Store(), new Cart());
 	}

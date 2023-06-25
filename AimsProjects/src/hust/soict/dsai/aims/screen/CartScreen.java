@@ -21,20 +21,20 @@ import javafx.scene.Scene;
 public class CartScreen extends JFrame {
 	private Store store;
 	private Cart cart;
-	
+
 	public CartScreen(Store store, Cart cart) {
 		super();
-		
+
 		this.store = store;
 		this.cart = cart;
-		
+
 		JFXPanel fxPanel = new JFXPanel();
 		this.add(fxPanel);
-		
+
 		this.setTitle("Cart");
 		this.setVisible(true);
 		JFrame frame = this;
-		
+
 		this.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
@@ -42,14 +42,15 @@ public class CartScreen extends JFrame {
 				dispose();
 			}
 		});
-		
+
 		Platform.runLater(new Runnable() {
 
 			@Override
 			public void run() {
 
 				try {
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("/hust/soict/dsai/aims/screen/cart.fxml"));
+					FXMLLoader loader = new FXMLLoader(
+							getClass().getResource("cart.fxml"));
 					CartScreenController controller = new CartScreenController(store, cart, frame);
 					loader.setController(controller);
 					Parent root = loader.load();
@@ -58,12 +59,12 @@ public class CartScreen extends JFrame {
 					e.printStackTrace();
 				}
 			}
-			
+
 		});
 	}
-	
+
 	public static void main(String args[]) throws Exception {
-		//Test
+		// Test
 		DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
 		DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 87, 24.95f);
 		DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);

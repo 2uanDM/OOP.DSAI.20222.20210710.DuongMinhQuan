@@ -13,12 +13,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 public class AddDVDToStoreScreen extends AddItemToStoreScreen {
-	
+
 	public AddDVDToStoreScreen(Store store, Cart cart) {
 		super(store, cart);
-		
+
 		JFrame frame = this;
-		
+
 		JFXPanel fxPanel = new JFXPanel();
 		this.add(fxPanel);
 		this.setTitle("Add DVD to store");
@@ -29,7 +29,7 @@ public class AddDVDToStoreScreen extends AddItemToStoreScreen {
 			public void run() {
 
 				try {
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("/hust/soict/dsai/aims/screen/addDVDToStore.fxml"));
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("addDVDToStore.fxml"));
 					AddDVDToStoreScreenController controller = new AddDVDToStoreScreenController(store, cart, frame);
 					loader.setController(controller);
 					Parent root = loader.load();
@@ -38,10 +38,10 @@ public class AddDVDToStoreScreen extends AddItemToStoreScreen {
 					e.printStackTrace();
 				}
 			}
-			
+
 		});
 	}
-	
+
 	public static void main(String[] args) {
 		new AddDVDToStoreScreen(new Store(), new Cart());
 	}
